@@ -1,58 +1,67 @@
+# Welcome to Jekyll!
+#
+# This config file is meant for settings that affect your whole blog, values
+# which you are expected to set up once and rarely edit after that. If you find
+# yourself editing this file very often, consider using Jekyll's data files
+# feature for the data you need to update frequently.
+#
+# For technical reasons, this file is *NOT* reloaded automatically when you use
+# 'jekyll serve'. If you change this file, please restart the server process.
 
-# SEO settings
-title: ""
-title2: "Musings of a researcher" # default: ""
-description: "Just another minimalist Jekyll theme that focuses on technical writing."
-keywords: "Jekyll, theme, free, download, SEO, blog, web, minimalist, thinkspace"
-url: http://heiswayi.github.io/ # site url
-baseurl: null # apply repo name if use it under gh-pages branch
-# baseurl: null # apply null if repo name is something like username.github.io
+# Site settings
+# These are used to personalize your new site. If you look in the HTML files,
+# you will see them accessed via {{ site.title }}, {{ site.author }}, and so on.
+# You can create any custom variable you would like, and they will be accessible
+# in the templates via {{ site.myvariable }}.
+theme: jekyll-whiteglass
+title: Devjournal
+author: Harshal Godhia 
+description: Computer Science Graduate Student
+baseurl: "/blog" # the subpath of your site, e.g. /blog
+url: "https://halgd.github.io" # the base hostname & protocol for your site, e.g. http://example.com
+lang: en
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - Rakefile
+  - README.md
+  - LICENSE.txt
+  - CHANGELOG.md
+  - jekyll-whiteglass.gemspec
+  - screenshot.png
+  - vendor
 
-google_analytics: UA-XXXXX-XX
-repo: http://github.com/halg
-disqus_shortname: "heiswayi"
-twitter_username: "HeiswayiNrird"
-comments: true 
+# Social media
+twitter_username: halgd
+
+# Plugins
+gems:
+  - jekyll-archives
+  - jekyll-paginate
+  - jekyll-sitemap
 
 # Build settings
-permalink   : /:year/:title/
-markdown    : kramdown
-highlighter : rouge
+markdown: kramdown
+excerpt_separator: "<!-- more -->"
 
-source: ./
-destination: ./_site
+# Outputting
+permalink: /:year/:month/:day/:title/
+paginate_path: /posts/:num/
+paginate: 5
 
-# Sass configuration
-sass:
-  sass_dir: assets/scss
-  style: compressed # expanded
+# Markdown settings
+kramdown:
+  auto_ids: false
+  enable_coderay: false
+  entity_output: as_char
+  footnote_nr: 1
+  smart_quotes: lsquo,rsquo,ldquo,rdquo
+  toc_levels: 1..6
 
-# Author settings
-author:
-  name     : "Harshal Godhia"
-  job      : "Computer Science Graduate Student"
-  bio      : "Specializing in nlp, ml and data infrastructure systems. I write here about interesting technical concepts, review research papers and discuss my projects"
-  thumb    : /images/author.jpg
-  email    : me@godhia.com
-  url      : http://halgd.github.io
-  github   : http://github.com/halgd
-  twitter  : http://twitter.com/halgd
-  linkedin : http://linkedin.com/in/hsgodhia
-
-# social settings
-og_locale: "en_US"
-twitter_card: "summary_large_image"
-twitter_site: "@HeiswayiNrird"
-
-gems:
-  - bourbon
-  - jekyll-paginate
-
-# navbar pages
-navbar:
-  - slug : about
-    title: About
-  - slug : blog
-    title: Blog
-
-exclude: ["gulp", "node_modules", "bower", "bower_components", "config.rb", "src", "Gemfile", "Gemfile.lock", ".rvmrc", ".rbenv-version", "package.json", "gulpfile.js", "README.md", "Rakefile", "changelog.md"]
+# jekyll-archives
+jekyll-archives:
+  enabled:
+    - categories
+  layout: category_archives
+  permalinks:
+    category: /categories/:name/
