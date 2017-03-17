@@ -17,7 +17,7 @@ theme: jekyll-whiteglass
 title: Devjournal
 author: Harshal Godhia 
 description: Computer Science Graduate Student
-baseurl: "/blog" # the subpath of your site, e.g. /blog
+baseurl: "/" # the subpath of your site, e.g. /blog
 url: "https://halgd.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 lang: en
 exclude:
