@@ -25,6 +25,7 @@ Basically says that messsages from the same sender are delivered at each receive
 		buffer msg till condition is true
 ```
 
+
 ### Totally ordered multicast 
 
 Ensures that all receivers get the messages in the same order i.e. its focus is on the **consistency** of messages received across all processes in the multicast group. It doesn't guarentee messages of one sender are received in the same order it was sent. 
@@ -64,6 +65,9 @@ When a process Pj receives a message from Pi. It buffers the message untill **bo
     for k != i
     Pj[k] >= msg.ts[k]
    ```
+     After the above condition is satisfied logical clock needs to be updated before message delivery.
+      * set `Pj[i] = max(msg.ts[i], Pj[i])`
+      * Before delivery to app layer update self clock `Pj[j] += 1`  
 *Note:* Causal ordering implies FIFO ordering
 
 
